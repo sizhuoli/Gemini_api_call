@@ -12,6 +12,10 @@ This repository contains personal tiny samples, snippets and guides showcasing c
 - [Function Calling Guide](guide/function-calling.ipynb) - Comprehensive guide on implementing function calling
 - [Gemini Native Image Output](examples/gemini-native-image-out.ipynb) - Generate images directly with Gemini 2.0 Flash experimental model
 
+### JavaScript Examples
+
+- [Gemini Native Image Output](javascript-examples/gemini-native-image-out.js) - Generate images directly with Gemini 2.0 Flash experimental model
+
 
 ### Gemma
 
