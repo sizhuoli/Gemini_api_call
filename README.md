@@ -10,6 +10,15 @@ This repository contains personal tiny samples, snippets and guides showcasing c
 - [Meta Prompts](examples/gemini-meta-prompt-structured-outputs.ipynb) - Generate JSON schemas dynamically using meta prompts
 - [Audio Transcription](examples/gemini-transcribe-with-timestamps.ipynb) - Transcribe audio with precise timestamps
 - [Function Calling Guide](guide/function-calling.ipynb) - Comprehensive guide on implementing function calling
+- [Gemini Native Image Output](examples/gemini-native-image-out.ipynb) - Generate images directly with Gemini 2.0 Flash experimental model
+
+
+### Gemma
+
+- [Gemma with GenAI SDK](examples/gemma-with-genai-sdk.ipynb) - Use Gemma 3 27B It with Google's GenAI API
+- [Gemma Function Calling](examples/gemma-function-calling.ipynb) - Implement function calling with Gemma 3 27B
+
+
 
 ## Repository Structure
 ```
