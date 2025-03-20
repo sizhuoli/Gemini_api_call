@@ -22,6 +22,8 @@
 import os
 from google import genai
 from dotenv import load_dotenv
+from google.genai.types import Tool, GenerateContentConfig, GoogleSearch
+
 
 load_dotenv('../.env')
 # create client
@@ -47,23 +49,34 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY","xxx"))
 
 # In[20]:
 
+model_id = "gemini-2.0-flash"
 
-# Generate a list of cookie recipes
-response = client.models.generate_content(
-    model='gemini-2.0-flash',
-    contents='xai company',
-    config={"tools": [{"google_search": {}}]},
+google_search_tool = Tool(
+    google_search = GoogleSearch()
 )
 
-# print the response
+response = client.models.generate_content(
+    model=model_id,
+    contents="Who won the latest ATP tournament? When was it? Why do I get different answers every time?",
+    config=GenerateContentConfig(
+        tools=[google_search_tool],
+        response_modalities=["TEXT"]
+    )
+)
+
+#
+# # print the response
 print(f"Response: {response.text}")
 # print the search details
 print(f"Search Query: {response.candidates[0].grounding_metadata.web_search_queries}")
 # urls used for grounding
-print(f"Search Pages: {', '.join([site.web.title for site in response.candidates[0].grounding_metadata.grounding_chunks])}")
-
-
-# In[ ]:
+try:
+    print(f"Search Pages: {', '.join([site.web.title for site in response.candidates[0].grounding_metadata.grounding_chunks])}")
+except:
+    print("No search pages found")
+#
+#
+# # In[ ]:
 
 
 
